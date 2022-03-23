@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Registration Form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+        crossorigin="anonymous"/>
+        <style>
+            .error {
+              color : red;
+              margin-top : 3px;
+              display: block;
+            }
+
+          </style>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <header class="text-center">
+            <B><U>Registration Form 
+        </header>
+        <div class="container">
+            <form action="reg_form.php" method="post" autocomplete="off" name="userinfo" id="userinfo">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label for="firstname">First Name</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="lastname">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="text" id="firstname" name="firstname" pattern="[A-Za-z]{2,15}" placeholder="First Name" title="Enter First Name in alphabet upto 15 letter" required autofocus>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="text" id="lastname" name="lastname" pattern="[A-Za-z]{2,15}" placeholder="Last Name" title="Enter First Name in alphabet upto 15 letter" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label for="Address">Address</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="city">City</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <textarea name="address" id="address" cols="30" rows="3" placeholder="Enter your Address..." title="Please Enter your Address" required></textarea>
+                    </div>
+                    <div class="col-xs-6">
+                        <select id="city" name="city" required>
+                            <option name="city" value="Ahmedabad">Ahmedabad</option>
+                            <option name="city" value="Vadodara">Vadodara</option>
+                            <option name="city" value="Surat">Surat</option>
+                            <option name="city" value="Rajkot">Rajkot</option>
+                            <option name="city" value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label for="emailid">Email Id</label>
+                    </div>
+                    <div>
+                        <label for="mobile">Mobile</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="email" name="emailid" id="emailid" pattern="([a-zA-z]).([@]){,40}" placeholder="enter your valid email id" title="Enter valid Email id" required>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="number" name="mobile" id="mobile" pattern="[0-9]{10}" placeholder="enter your mobile number" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label for="dob">DOB</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="marritial_status">Marritial Status</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="date" name="dob" id="dob" title="Enter your Date of Birth" required>
+                    </div>
+                    <div class="col-xs-6">
+                        <select name="marritial_status" id="marritial_status" required>
+                            <option name="marritial_status" value="Married">Married</option>
+                            <option name="marritial_status" value="Unmarried">Unmarried</option>
+                            <option name="marritial_status" value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label for="hobby">Hobby</label>
+                        <div id="error_hobby"></div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <label for="gender">Gender</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="checkbox" name="hobby[]" id="sport" value="sport">Sport
+                        <input type="checkbox" name="hobby[]" id="music" value="music">Music
+                        <input type="checkbox" name="hobby[]" id="travel" value="travel">Travel
+                        <input type="checkbox" name="hobby[]" id="reading" value="reading">Reading
+                        <input type="checkbox" name="hobby[]" id="others" value="others">Others
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="radio" name="gender" id="male" value="male" required>Male
+                        <input type="radio" name="gender" id="female" value="female" required>Female
+                        <input type="radio" name="gender" id="transgender" value="transgender" required>Transgender
+                        <div class="error" id="error_gender"></div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="confirm-password">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="password" name="password" id="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="password" name="confpassword" id="confpassword" placeholder="Re-Enter password" required>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <input type="submit" name="submit" id="submit" value="submit">
+                </div>
+            </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+        <script>
+            jQuery('#userinfo').validate({
+            rules:{
+                firstname : {
+                    required : true,
+                    Text : true,
+                    minlength : 2,
+                    maxlength : 15,
+                },
+                lastname : {
+                    required : true,
+                    Text : true,
+                },
+                mobile : {
+                    required : true,
+                    Number : true,
+                },
+                emailid: {
+                    required: true,
+                    email : true,
+                },
+                password: {
+                    required: true,
+                    minlength : 8,
+                    lower_check : true,
+                    upper_check : true,
+                    digit_check : true,
+                    special_check : true,
+                },
+                confpassword : {
+                    required : true,
+                    minlength : 8,
+                    equalTo : '#password',
+                },
+                'hobby[]' : {
+                    required: true,
+                    minlength: 1,
+                },
+                gender : {
+                    required : true,
+                    minlength : 1,
+                }
+            }, 
+            messages: {
+                emailid: {
+                    required : "Required",
+                    email : "Eneter Valid email id",
+                },
+                password: {
+                    required : "Required Password",
+                    minlength : "Required minimum 8 character long",
+                    lower_check : "Required at least one lowercase character",
+                    upper_check : "Required at least one uppercase character",
+                    digit_check : "Required at least one digit",
+                    special_check : "Required at least one special character",
+                },
+                'hobby[]' : {
+                    required: "At leaste one checkbox checked",
+                },
+                gender : {
+                    required : "At leaste one radiobutton checked"
+                }
+            },
+
+            errorPlacement: function(error, element) {
+
+                if(element.attr("name") == "hobby[]"){
+                    error.appendTo('#error_hobby');
+                    return;
+                }
+
+                else if(element.attr("name") == "gender"){
+                        error.appendTo('#error_gender');
+                        return;
+                }else {
+                    error.insertAfter(element);
+                }
+            },
+            
+            submitHanler : function (form) {
+                form.submit();
+            }
+            
+        });
+
+        $.validator.addMethod("email_val", function(value) {
+            return /^[A-Za-z0-9\d=!\-@._*]+$/.test(value);
+        }, "");
+
+        $.validator.addMethod("pass_val",function (value) {
+            return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]){8,}$/.test(value);    
+        });
+
+        $.validator.addMethod("lower_check",function(value) {
+            return /[a-z]/.test(value);
+        });
+
+        $.validator.addMethod("upper_check",function(value) {
+            return /[A-Z]/.test(value);
+        });
+
+        $.validator.addMethod("digit_check",function(value) {
+            return /[0-9]/.test(value);
+        });
+
+        $.validator.addMethod("special_check",function(value) {
+            return /[#?!$@%^&*-]/.test(value);
+        });
+
+
+        </script>
+    </body>
+</html>
